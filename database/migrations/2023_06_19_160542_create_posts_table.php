@@ -18,7 +18,23 @@ return new class extends Migration
             $table->string('versi');
             $table->string('tahun_sk');
             $table->string('nomor_sk');
-            $table->text('body');
+            $table->string('kondisi')->nullable();
+            $table->text('alasan')->nullable();
+            $table->string('nama_admin');
+            $table->string('nomor_wa');
+            $table->string('email');
+            $table->string('jumlah_pengguna');
+            $table->string('alamat_web');
+            $table->string('jenis_layanan');
+            $table->text('uraian')->nullable();
+            $table->string('sop')->nullable();
+            $table->string('pemilik');
+            $table->string('tampilan')->nullable();
+            $table->string('pelatihan')->nullable();
+            $table->string('rapat')->nullable();
+            $table->string('bug')->nullable();
+            $table->string('kendala')->nullable();
+            // $table->text('body');
             $table->timestamps();
         });
     }
