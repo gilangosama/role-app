@@ -32,6 +32,7 @@ class PostController extends Controller
         'tampilan' => 'max:2048|mimes:pdf,doc,docx|nullable',
         'rapat' => 'max:2048|mimes:pdf,doc,docx|nullable',
         'nomor_wa' => 'numeric',
+        'uraian' => 'nullable',
     ],
         ['nomor_wa'=> 'Nomor harus angka',]
         );
@@ -109,34 +110,43 @@ class PostController extends Controller
 
    }
 
-   /**
-     * show
-     *
-     * @param  mixed $id
-     * @return View
-     */
-    public function show(string $id): View
-    {
-        $post = Post::find($id);
-
-    return view('post.show', compact('post'));
+   public function show($post){
+    $post = Post::find($post);
+    if($post){
+       return view('posts.show', ['post' => $post]);
     }
+   }
 
-    // use App\Models\User
-// ...
+   public function update(Request $request ){
+    // Menyimpan file ke server
+        $post = Post::find($request->id);
+        $post->nama_apk = $request->nama_apk;
+        $post->versi = $request->versi;
+        $post->nomor_sk = $request->nomor_sk;
+        $post->tahun_sk = $request->tahun_sk;
+        $post->kondisi = $request->input('kondisi');
+        $post->alasan = $request->input('alasan');
+        $post->nama_admin = $request->nama_admin;
+        $post->nomor_wa = $request->nomor_wa;
+        $post->email = $request->email;
+    //    $post->body = $request->body;
+        $post->save();
 
-public function destroy($id)
-{
-    $post = Post::find($id);
+        return back();
 
-    if ($post) {
+       return redirect()->route('posts/create')->with('message', 'Success');
+   }
+
+   public function destroy(Request $request){
+    // Menyimpan file ke server
+        $post = Post::find($request->id);
         $post->delete();
 
-        return redirect()->route('dasboard')->with('success', 'User deleted successfully.');
-    } else {
-        return redirect()->route('dasboard')->with('error', 'User not found.');
-    }
-}
+        return back();
+
+       return redirect()->route('posts/create')->with('message', 'Success');
+   }
+
 
 
 }

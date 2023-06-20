@@ -80,14 +80,14 @@
                                 </th>
                                 <td class="px-6 py-4">
                                     @if (Auth::user()->is_admin)
-                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('post.destroy', $post->id) }}" method="POST">
+                                    {{-- <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('post.destroy', $post->id) }}" method="POST"> --}}
                                     <a href="" class="font-medium text-blue-600 hover:underline">Edit</a>
                                     <a href="" class="font-medium text-grey-600 hover:underline">Lihat</a>    
                                     @endif
                                     @csrf
                                     @method('DELETE')
-                                    <a href="#" type="submit" class="font-medium text-red-600 hover:underline">Hapus</a>
-                                </form>
+                                    <a type="submit" class="font-medium text-red-600 hover:underline">Hapus</a>
+                                {{-- </form> --}}
                                 </td>
                             </tr>
                             @endforeach

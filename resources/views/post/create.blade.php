@@ -95,8 +95,8 @@
             </div>
 
             <div class="flex flex-col">
-                <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Uraian Singkat Aplikasi dan Manfaatnya :</label>
-                <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Uraian Singkat Aplikasi dan Manfaatnya"></textarea>
+                <label for="uraian" class="block mb-2 text-sm font-medium text-gray-900">Uraian Singkat Aplikasi dan Manfaatnya :</label>
+                <textarea id="uraian" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Uraian Singkat Aplikasi dan Manfaatnya" name="uraian"></textarea>
             </div>
 
             <div class="w-full my-3">

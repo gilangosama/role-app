@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('jumlah_pengguna');
             $table->string('alamat_web');
             $table->string('jenis_layanan');
-            $table->text('uraian')->nullable();
+            $table->text('uraian');
             $table->string('sop')->nullable();
             $table->string('pemilik');
             $table->string('tampilan')->nullable();

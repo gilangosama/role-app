@@ -12,11 +12,32 @@
         <!-- Nama OPD -->
         <div class="mt-4">
             <x-input-label for="nama_opd" :value="__('Nama OPD')" />
-            <select id="nama_opd" name="nama_opd" class="form-select mt-1 block w-full">
+            <select id="nama_opd" name="nama_opd" class="form-select mt-1 block w-full z-10 bg-white divide-y divide-gray-100 rounded-lg shadow">
                 <option value="kecamatan-cikole">Kecamatan Cikole</option>
                 <option value="kecamatan-cibereum">Kecamatan Cibereum</option>
+                <option value="Kecamatan Citamiang">Kecamatan Citamiang</option>
+                <option value="Kecamatan Lembursitu">Kecamatan Lembursitu</option>
                 <option value="BPBD">BPBD</option>
-                <option value="RSUD">RSUD</option>
+                <option value="RSUD Syamsudin">RSUD Syamsudin </option>
+                <option value="Al-Mulk">Al-Mulk</option>
+                <option value="Bagian Hukum">Bagian Hukum</option>
+                <option value="BKPSDM">BKPSDM</option>
+                <option value="Dalduk">Dalduk</option>
+                <option value="Dinas P&K">Dinas P&K</option>
+                <option value="Dinas PU">Dinas PU</option>
+                <option value="Dinas Sosial">Dinas Sosial</option>
+                <option value="Dsihub">Dsihub</option>
+                <option value="Diskominfo">Diskominfo</option>
+                <option value="Disnake">Disnake</option>
+                <option value="Disporapar">Disporapar</option>
+                <option value="DKP3">DKP3</option>
+                <option value="DPMPTSP">DPMPTSP</option>
+                <option value="Dukcapil">Dukcapil</option>
+                <option value="Kecamatan Baros">Kecamatan Baros</option>
+                <option value="SETDA">SETDA</option>
+                <option value="Diskumindag">Diskumindag</option>
+                <option value="Ortala">Ortala</option>
+                <option value="Perumda BPR">Perumda BPR</option>
             </select>
             <x-input-error :messages="$errors->get('nama_opd')" class="mt-2" />
         </div>
