@@ -32,11 +32,14 @@ class PostController extends Controller
         'sop' => 'max:2048|mimes:pdf,doc,docx|nullable',
         'tampilan' => 'max:2048|mimes:pdf,doc,docx|nullable',
         'rapat' => 'max:2048|mimes:pdf,doc,docx|nullable',
-        'nomor_wa' => 'numeric',
+        'nomor_wa' => 'numeric|min:10',
         'uraian' => 'nullable',
     ],
-        ['nomor_wa'=> 'Nomor harus angka',]
-        );
+        [
+            'nomor_wa'=> 'Nomor harus angka',
+        
+        
+        ]);
 
         if ($request->hasFile('sop')) {
             $file = $request->file('sop');
@@ -154,8 +157,6 @@ class PostController extends Controller
                 // 'nama_apk'   => $request->nama_apk
             ]);
 
-        }else{
-            $post->sop = sop;
         }
 
         if ($request->hasFile('tampilan')) {
@@ -175,8 +176,6 @@ class PostController extends Controller
                 // 'nama_apk'   => $request->nama_apk
             ]);
 
-        }else{
-            $post->tampilan = tampilan;
         }
 
         if ($request->hasFile('rapat')) {
@@ -196,8 +195,6 @@ class PostController extends Controller
                 // 'nama_apk'   => $request->nama_apk
             ]);
 
-        }else{
-            $post->rapat = rapat;
         }
 
         $post->sop = $request->sop;
