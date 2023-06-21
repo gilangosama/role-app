@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create New Post') }}
+            {{ __('Edit Post') }}
         </h2>
     </x-slot>
 
@@ -9,19 +9,20 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                <form method="POST" action="{{ route('store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('post.update', $post->id) }}" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
 
             <!-- Nama APK -->
             <div class="flex gap-5">
             <div class="w-full">
                 <x-input-label for="nama_apk" :value="__('Nama Aplikasi')" />
-                <x-text-input id="nama_apk" class="block mt-1 w-full" type="text" name="nama_apk" :value="old('nama_apk')" required autofocus />
+                <x-text-input id="nama_apk" class="block mt-1 w-full" type="text" name="nama_apk" :value="old('nama_apk',$post->nama_apk)"  autofocus />
             </div>
 
             <div class="w-full">
                 <x-input-label for="versi" :value="__('Versi')" />
-                <x-text-input id="versi" class="block mt-1 w-full" type="text" name="versi" :value="old('versi')" required autofocus />
+                <x-text-input id="versi" class="block mt-1 w-full" type="text" name="versi" :value="old('versi', $post->versi)"  autofocus />
             </div>
             </div>
 
@@ -30,24 +31,24 @@
                 <div class="flex gap-5">
                     <div class="w-full">
                         <x-input-label for="nomor_sk" :value="__('Nomor')" />
-                        <x-text-input id="nomor_sk" class="block mt-1 w-full" type="text" name="nomor_sk" :value="old('nomor_sk')" required autofocus />
+                        <x-text-input id="nomor_sk" class="block mt-1 w-full" type="text" name="nomor_sk" :value="old('nomor_sk',$post->nomor_sk)"  autofocus />
                     </div>
 
                     <div class="w-full">
                         <x-input-label for="tahun_sk" :value="__('Tahun')" />
-                        <x-text-input id="tahun_sk" class="block mt-1 w-full" type="text" name="tahun_sk" :value="old('tahun_sk')" required autofocus />
+                        <x-text-input id="tahun_sk" class="block mt-1 w-full" type="text" name="tahun_sk" :value="old('tahun_sk', $post->tahun_sk)"  autofocus />
                     </div>
                 </div>
             </div>
 
-            <x-input-label for="kondisi" :value="__('Kondisi')" required/>
+            <x-input-label for="kondisi" :value="__('Kondisi')" />
             <div>
                 <label class="inline-flex items-center">
-                    <input type="radio" class="form-radio" name="kondisi" value="aktif" id="status-aktif">
+                    <input type="radio" class="form-radio" name="kondisi" value="aktif" id="status-aktif" :value="old('kondisi', $post->kondisi)">
                     <span class="ml-2">Aktif</span>
                 </label>
                 <label class="inline-flex items-center">
-                    <input type="radio" class="form-radio" name="kondisi" value="tidak_aktif" id="status-tidak-aktif">
+                    <input type="radio" class="form-radio" name="kondisi" value="tidak_aktif" id="status-tidak-aktif" :value="old('kondisi', $post->kondisi)">
                     <span class="ml-2">Tidak Aktif</span>
                 </label>
             </div>
@@ -56,37 +57,37 @@
                 <label for="alasan-tidak-aktif" class="block mt-4">
                     Alasan Tidak Aktif:
                 </label>
-                <textarea id="alasan-tidak-aktif" name="alasan" class="form-textarea mt-1 block w-full"></textarea>
+                <textarea id="alasan-tidak-aktif" name="alasan" class="form-textarea mt-1 block w-full">{{ old('alasan', $post->alasan) }}</textarea>
             </div>
             
             <div class="w-full my-3">
                 <x-input-label for="nama_admin" :value="__('Nama Admin')" />
-                <x-text-input id="nama_admin" class="block mt-1 w-full" type="text" name="nama_admin" :value="old('nama_admin')" required autofocus />
+                <x-text-input id="nama_admin" class="block mt-1 w-full" type="text" name="nama_admin" :value="old('nama_admin', $post->nama_admin)"  autofocus />
             </div>
 
             <div class="w-full my-3">
                 <x-input-label for="nomor_wa" :value="__('Nomor WhatsApp')" />
-                <x-text-input id="nomor_wa" class="block mt-1 w-full" type="text" name="nomor_wa" :value="old('nomor_wa')" required autofocus />
+                <x-text-input id="nomor_wa" class="block mt-1 w-full" type="text" name="nomor_wa" :value="old('nomor_wa', $post->nomor_wa)"  autofocus />
             </div>
 
             <div class="w-full my-3">
                 <x-input-label for="email" :value="__('Email')" />
-                <x-text-input id="email" class="block mt-1 w-full" type="text" name="email" :value="old('email')" required autofocus />
+                <x-text-input id="email" class="block mt-1 w-full" type="text" name="email" :value="old('email', $post->email)"  autofocus />
             </div>
 
             <div class="w-full my-3">
                 <x-input-label for="jumlah_pengguna" :value="__('Jumlah Pengguna')" />
-                <x-text-input id="jumlah_pengguna" class="block mt-1 w-full" type="number" name="jumlah_pengguna" :value="old('jumlah_pengguna')" required autofocus />
+                <x-text-input id="jumlah_pengguna" class="block mt-1 w-full" type="number" name="jumlah_pengguna" :value="old('jumlah_pengguna', $post->jumlah_pengguna)"  autofocus />
             </div>
 
             <div class="w-full my-3">
                 <x-input-label for="alamat_web" :value="__('Alamat Web')" />
-                <x-text-input id="alamat_web" class="block mt-1 w-full" type="text" name="alamat_web" :value="old('alamat_web')" required autofocus />
+                <x-text-input id="alamat_web" class="block mt-1 w-full" type="text" name="alamat_web" :value="old('alamat_web', $post->alamat_web)"  autofocus />
             </div>
 
             <div class="mb-3 flex flex-col">
                 <label for="jenis_layanan" class="form-label">Jenis Layanan</label>
-                <select name="jenis_layanan" class="form-select">
+                <select name="jenis_layanan" class="form-select" :value="old('jenis_layanan', $post->jenis_layanan)">
                     <option value="Untuk Pemerintahan(G2G)">Untuk Pemerintahan(G2G)</option>
                     <option value="Untuk Pelaku Usaha(G2B)">Untuk Pelaku Usaha(G2B)</option>
                     <option value="Untuk Masyarakat Umum (G2C)">Untuk Masyarakat Umum (G2C)</option>
@@ -96,19 +97,19 @@
 
             <div class="flex flex-col">
                 <label for="uraian" class="block mb-2 text-sm font-medium text-gray-900">Uraian Singkat Aplikasi dan Manfaatnya :</label>
-                <textarea id="uraian" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Uraian Singkat Aplikasi dan Manfaatnya" name="uraian" required></textarea>
+                <textarea id="uraian" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Uraian Singkat Aplikasi dan Manfaatnya" name="uraian">{{ old('uraian', $post->uraian) }}</textarea>
             </div>
 
             <div class="w-full my-3">
                 <x-input-label for="sop" :value="__('Apakah aplikasi ini memiliki dokumen Proses Bisnis atau SOP yang berkaitan ? (lampirkan
                 jika ada)')" />
-                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none" aria-describedby="sop" id="file_sop" type="file" name="sop" accept=".pdf,.doc,.docx">
+                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none" aria-describedby="sop" id="file_sop" type="file" name="sop" accept=".pdf,.doc,.docx" >
                 <p class="mt-1 text-sm text-gray-500" id="sop">PDF,DOC,DOCX (MAX. 2Mb).</p>
             </div>
 
             <div class="mb-3 flex flex-col">
                 <label for="pemilik" class="form-label">Kepemilikan Aplikasi</label>
-                <select name="pemilik" class="form-select">
+                <select name="pemilik" class="form-select" >
                     <option value="Pusat">Pusat</option>
                     <option value="Provinsi">Provinsi</option>
                     <option value="Kota">Kota</option>
@@ -123,7 +124,7 @@
 
             <div class="w-full my-3">
                 <x-input-label for="pelatihan" :value="__('Apakah diadakan pelatihan untuk penggunaan aplikasi ?(jika ya sebutkan tahun dan jumlah peserta)')" />
-                <x-text-input id="pelatihan" class="block mt-1 w-full" type="text" name="pelatihan" :value="old('pelatihan')" autofocus />
+                <x-text-input id="pelatihan" class="block mt-1 w-full" type="text" name="pelatihan" :value="old('pelatihan', $post->pelatihan)" autofocus />
             </div>
 
             <div class="w-full my-3">
@@ -134,12 +135,12 @@
             
             <div class="w-full my-3">
                 <x-input-label for="bug" :value="__('Apakah ada pihak yang dapat dijadikan tempat konsultasi jika suatu saat terjadi error / bug?')" />
-                <x-text-input id="bug" class="block mt-1 w-full" type="text" name="bug" :value="old('bug')" autofocus />
+                <x-text-input id="bug" class="block mt-1 w-full" type="text" name="bug" :value="old('bug', $post->bug)" autofocus />
             </div>
 
             <div class="w-full my-3">
                 <x-input-label for="kendala" :value="__('Apakah ada kendala dalam penggunaan/ pengeloaan aplikasi ?')" />
-                <x-text-input id="kendala" class="block mt-1 w-full" type="text" name="kendala" :value="old('kendala')" autofocus />
+                <x-text-input id="kendala" class="block mt-1 w-full" type="text" name="kendala" :value="old('kendala', $post->kendala)" autofocus />
             </div>
 
             <!-- Body -->
@@ -160,7 +161,7 @@
         	</form>
                </div>
             </div>
-            {{-- {{ $posts->links() }} --}}
+            {{-- {{ $post->links() }} --}}
         </div>
     </div>
     <script>

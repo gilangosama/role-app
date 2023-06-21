@@ -60,11 +60,17 @@
                                     <p class="text-[11px]">oleh {{ $post->user->nama_opd }}</p>
                                 </td>
                                 <td class="px-6 py-4">
+                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('post.destroy', $post->id) }}" method="POST">
                                     @if (Auth::user()->is_admin)
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                    {{-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> --}}
                                     <a href="#" class="font-medium text-grey-600 dark:text-grey-500 hover:underline">Lihat</a>    
                                     @endif
-                                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Hapus</a>
+                                    <a href="{{ route('post.show', $post->id) }}" class="font-medium text-grey-600 hover:underline">Lihat</a> 
+                                    @csrf
+                                    @method('DELETE')
+                                    {{-- <a type="submit" class="font-medium text-red-600 hover:underline">Hapus</a> --}}
+                                    <button type="submit" class="font-medium text-red-600 hover:underline">Hapus</button>
+                                    </form>
                                 </td>
                                 @endif
                              @endforeach
