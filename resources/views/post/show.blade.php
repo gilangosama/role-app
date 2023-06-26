@@ -33,6 +33,7 @@
                     <p><span class="font-semibold pt-1">Apakah aplikasi ini memiliki dokumen Proses Bisnis atau SOP yang berkaitan : </span><br> </p>  
                     <p><span class="font-semibold pt-1">Kepemilikan Aplikasi :</span> {{ __( $post->pemilik) }}</p>  
                     <p><span class="font-semibold pt-1">Tampilan layar (screen shoot) aplikasi : </span><br>  </p>  
+                    <p><span class="font-semibold pt-1">Link Tampilan layar (screen shoot) aplikasi : </span><br>{{ __( $post->video_tampilan) }}  </p>  
                     <p><span class="font-semibold pt-1">Apakah diadakan pelatihan untuk penggunaan aplikasi :</span>  {{ __( $post->pelatihan) }}</p>  
                     <p><span class="font-semibold pt-1">Rapat Evaluasi yang berkaitan dengan aplikasi : </span><br>  </p>  
                     <p><span class="font-semibold pt-1">Apakah ada pihak yang dapat dijadikan tempat konsultasi jika suatu saat terjadi error / bug : </span><br> {{ __( $post->bug) }} </p>  

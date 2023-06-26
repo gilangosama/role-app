@@ -41,7 +41,7 @@
                     
                 <div class="relative overflow-x-auto sm:rounded-lg p-4">
                     <div class="flex justify-between">
-                    <div class="pb-4 bg-white">
+                    {{-- <div class="pb-4 bg-white">
                         <label for="table-search" class="sr-only">Search</label>
                         <div class="relative mt-1">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -49,7 +49,7 @@
                             </div>
                             <input type="text" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search for items">
                         </div>
-                    </div>
+                    </div> --}}
                     {{-- <div class="">
                     <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Tambah Aplikasi</button>
                          </div> --}}

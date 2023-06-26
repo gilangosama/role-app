@@ -16,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::with('user')->get();
-        $posts = Post::latest()->paginate(5);
+        // $posts = Post::latest()->paginate(5);
         return view('post.posts', ['posts' => $posts]);
     }
 
@@ -29,9 +29,9 @@ class PostController extends Controller
    {
 
     $request->validate([
-        'sop' => 'max:2048|mimes:pdf,doc,docx|nullable',
-        'tampilan' => 'max:2048|mimes:pdf,doc,docx|nullable',
-        'rapat' => 'max:2048|mimes:pdf,doc,docx|nullable',
+        'sop' => 'max:5120|mimes:pdf,doc,docx|nullable',
+        'tampilan' => 'max:5120|mimes:pdf,doc,docx|nullable',
+        'rapat' => 'max:5120|mimes:pdf,doc,docx|nullable',
         'nomor_wa' => 'numeric|min:10',
         'uraian' => 'nullable',
     ],
@@ -89,6 +89,7 @@ class PostController extends Controller
     //    $post->body = $request->body;
        $post->jumlah_pengguna = $request->jumlah_pengguna;
        $post->alamat_web = $request->alamat_web;
+       $post->video_tampilan = $request->video_tampilan;
        $post->jenis_layanan = $request->input('jenis_layanan');
        $post->pemilik = $request->input('pemilik');
        $post->uraian = $request->input('uraian');

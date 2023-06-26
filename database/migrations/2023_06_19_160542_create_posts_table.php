@@ -30,10 +30,11 @@ return new class extends Migration
             $table->string('sop')->nullable();
             $table->string('pemilik');
             $table->string('tampilan')->nullable();
+            $table->string('video_tampilan')->nullable();
             $table->string('pelatihan')->nullable();
             $table->string('rapat')->nullable();
-            $table->string('bug')->nullable();
-            $table->string('kendala')->nullable();
+            $table->text('bug')->nullable();
+            $table->text('kendala')->nullable();
             // $table->text('body');
             $table->timestamps();
         });

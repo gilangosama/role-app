@@ -21,7 +21,7 @@
                     
                 <div class="relative overflow-x-auto sm:rounded-lg p-4">
                     <div class="flex justify-between">
-                    <div class="pb-4 bg-white">
+                    {{-- <div class="pb-4 bg-white">
                         <label for="table-search" class="sr-only">Search</label>
                         <div class="relative mt-1">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -29,7 +29,7 @@
                             </div>
                             <input type="text" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Search for items">
                         </div>
-                    </div>
+                    </div> --}}
                     {{-- <div class="">
                     <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Tambah Aplikasi</button>
                          </div> --}}
@@ -37,9 +37,9 @@
                     <table class="w-full text-sm text-left text-gray-500 ">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                             <tr>
-                                <th scope="col" class="p-4">
+                                {{-- <th scope="col" class="p-4">
                                     No
-                                </th>
+                                </th> --}}
                                 <th scope="col" class="px-6 py-3">
                                     Nama Aplikasi
                                 </th>
@@ -52,24 +52,24 @@
                             @foreach ($posts as $key => $post)
                                      @if ($post->user->id == Auth::user()->id)
                             <tr class="bg-white border-b hover:bg-gray-50 ">
-                                <td class="w-4 p-4">
+                                {{-- <td class="w-4 p-4">
                                     {{$key + 1}}
-                                </td>
+                                </td> --}}
                                 <td scope="row" class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap ">
                                     {{$post->nama_apk}}
                                     <p class="text-[11px]">oleh {{ $post->user->nama_opd }}</p>
                                 </td>
                                 <td class="px-6 py-4">
                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('post.destroy', $post->id) }}" method="POST">
-                                    {{-- @if (Auth::user()->is_admin) --}}
                                     <a href="{{ route('post.edit', $post->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                     {{-- <a href="#" class="font-medium text-grey-600 dark:text-grey-500 hover:underline">Lihat</a>     --}}
-                                    {{-- @endif --}}
                                     <a href="{{ route('post.show', $post->id) }}" class="font-medium text-grey-600 hover:underline">Lihat</a> 
+                                    @if (Auth::user()->is_admin)
                                     @csrf
                                     @method('DELETE')
                                     {{-- <a type="submit" class="font-medium text-red-600 hover:underline">Hapus</a> --}}
                                     <button type="submit" class="font-medium text-red-600 hover:underline">Hapus</button>
+                                    @endif
                                     </form>
                                 </td>
                                 @endif

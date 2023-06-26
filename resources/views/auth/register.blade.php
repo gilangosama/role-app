@@ -37,7 +37,7 @@
                 <option value="DPMPTSP">DPMPTSP</option>
                 <option value="Dukcapil">Dukcapil</option>
                 <option value="Kecamatan Baros">Kecamatan Baros</option>
-                <option value="SETDA">SETDA</option>
+                <option value="Sekretariat Daerah">Sekretariat Daerah</option>
                 <option value="Diskumindag">Diskumindag</option>
                 <option value="Ortala">Ortala</option>
                 <option value="Perumda BPR">Perumda BPR</option>
