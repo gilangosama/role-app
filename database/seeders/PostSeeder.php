@@ -1141,7 +1141,7 @@ class PostSeeder extends Seeder
                 'kondisi' => 'Aktif',
                 'alasan' => '-',
                 'nama_admin' => 'Tasya Maryana',
-                'nomor_wa' => '2083115513864',
+                'nomor_wa' => '083115513864',
                 'email' => 'tasyamaryana1901@gmail.com',
                 'jumlah_pengguna' => '1',
                 'alamat_web' => 'sukabumikota.go.id/edan/',
