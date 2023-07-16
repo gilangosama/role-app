@@ -138,7 +138,7 @@
                 <p class="mt-1 text-[10px] text-gray-500" id="tampilan">PDF,DOC,DOCX (MAX.5Mb). Contoh Format Nama File : tampilan layar_Diskominfo.pdf</p>
                 <x-input-error class="mt-2" :messages="$errors->get('tampilan')" />
 
-                <x-text-input id="video_tampilan" class="block mt-1 w-full text-[12px]" type="text" name="video_tampilan" :value="old('video_tampilan')" placeholder="Masukan Link Video Tampilan Aplikasi, Jika ada" autofocus /> 
+                <x-text-input id="video_tampilan" class="block mt-1 w-full text-[12px]" type="text" name="video_tampilan" :value="old('video_tampilan')" placeholder="Masukan Link Cloud Drive berupa Video Tampilan Aplikasi, Jika ada" autofocus /> 
                 <x-input-error class="mt-2" :messages="$errors->get('video_tampilan')" />
             </div>
 
@@ -182,11 +182,11 @@
             </div> --}}
   
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('dashboard') }}">
-                    	{{ __('Cancel') }}
+                <a class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" href="{{ route('dashboard') }}">
+                    	{{ __('Cencel') }}
                 </a>
 
-                <x-primary-button class="ml-4" href="{{ route('dashboard') }}">
+                <x-primary-button class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" href="{{ route('dashboard') }}">
                     	{{ __('Submit') }}
                 </x-primary-button>
             	</div>
