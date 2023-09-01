@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Post;
 
 class AdminController extends Controller
 {
@@ -11,8 +13,17 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $users = User::latest()->paginate(5);
+        return view('admin.index', ['users' => $users]);
     }
+
+    public function showUserCount()
+    {
+    $userCount = User::count();
+
+    return view('admin.index', ['userCount' => $userCount]);
+    }
+
 
     /**
      * Show the form for creating a new resource.

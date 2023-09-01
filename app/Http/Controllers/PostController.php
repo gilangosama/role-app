@@ -8,16 +8,26 @@ use Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use App\Models\User;
 
 
 
 class PostController extends Controller
 {
+
     public function index()
     {
         $posts = Post::with('user')->get();
+        // $postscount = Post::count();
         // $posts = Post::latest()->paginate(5);
         return view('post.posts', ['posts' => $posts]);
+    }
+
+    public function showPostCount()
+    {
+    $postCount = Post::count();
+
+    return view('post.posts', ['postCount' => $postCount]);
     }
 
    public function create()

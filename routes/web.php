@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('post', PostController::class);
     Route::get('/posts', [PostController::class, 'index'])->name('posts');
+    Route::get('/post', [PostController::class, 'showPostCount'])->name('post.posts');
     Route::get('/post/create', [PostController::class, 'create'])->name('new-post');
     Route::post('/post/store', [PostController::class, 'store'])->name('store');
 // Contoh rute untuk fungsi edit dan destroy
@@ -46,6 +47,8 @@ Route::middleware('auth')->group(function () {
 
     // Route::get('/users/{id}', [UserController::class, 'show']);
     // Route::delete('/users/{id}', [UserController::class, 'destroy']);
+    // Route::get('/posts', [PostController::class, 'showPostCount'])->name('posts');
+
 });
 
 require __DIR__.'/auth.php';
